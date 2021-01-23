@@ -126,7 +126,41 @@ int main(int argc, char** argv) {
 		i += 1;
 	}
 
+//<<<<<<<<<<< While Loop Used w/ String Streams >>>>>>>>>>>>>>>>>>>>>>>>>>>//
 
+	vector<string> words;
+	stringstream ss("Some Random Words"); 		/*StringStream object recieves strings separated by a space  
+							 which are spat out one-at-a-time where we will put them in the vector*/
+ 	string word;	//Holds each of the words as they are spat out
+	
+	while(getline(ss, word, ' ')){		//Cycle through SS, assign word variable, look for spaces
+		words.push_back(word);		//Throw each word onto vector
+	}
+
+	for(int i = 0; i < words.size(); ++i){  //Increments by 1 through value of vector size
+		cout << words[i] << endl;
+	}
+	
+	int arr3[] = {1, 2, 3};
+	for(auto x: arr3) cout << x << endl; 	//Abbreviated for loop using an array
+
+	
+//<<<<<<<<<<<<<<<<<<<< Do While Loops >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
+// Basically granted to excute at least once 
+// Creating a numerical guessing game to illustrate idea
+
+	srand(time(NULL)); 		//Creates a random number 
+	int secretNum = rand() % 11;    //Random variable up to modulus eleven (Up to 10) 
+	int guess = 0;
+
+	do{
+		cout << "Guess the Number: ";
+		cin >> guess;
+		if(guess > secretNum) cout << "To Big\n";
+		if(guess < secretNum) cout << "To Small\n";
+	}
+	while(secretNum != guess);				//After Do has run once
+	cout << "You Guessed it!" << endl;
 
 
 return 0;
